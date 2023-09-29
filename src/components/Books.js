@@ -21,34 +21,34 @@ const Books = () => {
       author: 'Matt Frisbie',
     },
   ];
-  return(
-      <>
-        <div className="">
-          { books.map((book) => (
-            <p key={book.id}>
-              {book.title}
-              {' '}
-              written by
-              {' '}
-              {book.author}
-            </p>
-          )) }
-        </div>
-        <hr />
-        <div className="">
-          <h2>Add new book</h2>
-          <form>
-            <input type="text" placeholder="Book title" />
-            <select name="catagory" id="category">
-              <option value="NodeJS">NodeJS</option>
-              <option value="React">React</option>
-              <option value="Javascript">Javascript</option>
-            </select>
-            <button type="submit">Add to Library</button>
-          </form>
-        </div>
-      </>
+  return (
+    <>
+      <div className="">
+        { books.map((book) => (
+          <p key={book.id}>
+            {book.title}
+            {' '}
+            written by
+            {' '}
+            {book.author}
+          </p>
+        )) }
+      </div>
+      <hr />
+      <div className="">
+        <h2>Add new book</h2>
+        <form>
+          <input type="text" placeholder="Book title" />
+          <select name="catagory" id="category">
+            <option value="NodeJS">NodeJS</option>
+            <option value="React">React</option>
+            <option value="Javascript">Javascript</option>
+          </select>
+          <button type="submit">Add to Library</button>
+        </form>
+      </div>
+    </>
   );
-}
+};
 
-  export default Books;
+export default Books;

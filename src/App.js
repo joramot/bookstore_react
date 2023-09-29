@@ -13,9 +13,9 @@ function App() {
           <p><Link to="categories">Categories</Link></p>
         </div>
       </nav>
-      <Routes>   
-        <Route path='/' element={<Books />} />
-        <Route path='categories' element={<Categories />} />
+      <Routes>
+        <Route path="/" element={<Books />} />
+        <Route path="categories" element={<Categories />} />
       </Routes>
     </div>
   );

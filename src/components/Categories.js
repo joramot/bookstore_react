@@ -1,7 +1,7 @@
 const Categories = () => (
-  
-<button type="button" className=""> Status </button>
+
+  <button type="button" className=""> Status </button>
 
 );
 
-export default Categories
+export default Categories;
