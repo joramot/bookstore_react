@@ -44,7 +44,7 @@ const Books = () => {
               <option value="React">React</option>
               <option value="Javascript">Javascript</option>
             </select>
-            <button type="submit">Add to Cart</button>
+            <button type="submit">Add to Library</button>
           </form>
         </div>
       </>
@@ -52,4 +52,3 @@ const Books = () => {
 }
 
   export default Books;
-  
