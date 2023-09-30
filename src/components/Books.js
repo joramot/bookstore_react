@@ -1,7 +1,8 @@
-// import Book from './Book';
+import { useState } from 'react';
+import Book from './Book';
 
 const Books = () => {
-  const books = [
+  const [books, setBooks] = useState([
     {
       id: 1,
       title: 'The Road to React',
@@ -22,20 +23,16 @@ const Books = () => {
       title: 'Javascript for Web Developer',
       author: 'Matt Frisbie',
     },
-  ];
+  ]);
   return (
     <>
       <div className="">
-        { books.map((book) => (
-          <p key={book.id}>
-            {book.title}
-            {' '}
-            written by
-            {' '}
-            {book.author}
+        {books.map((book) => (
+          <div key={book.id}>
+            <Book title={book.title} author={book.author} />
             <button type="button">Remove</button>
-          </p>
-        )) }
+          </div>
+        ))}
       </div>
       <hr />
       <div className="">
