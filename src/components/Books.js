@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Book from './Book';
 
 const Books = () => {
-  const [books, setBooks] = useState([
+  const [books] = useState([
     {
       id: 1,
       title: 'The Road to React',
