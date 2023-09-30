@@ -1,3 +1,5 @@
+// import Book from './Book';
+
 const Books = () => {
   const books = [
     {
@@ -8,7 +10,7 @@ const Books = () => {
     {
       id: 2,
       title: 'Learning Node',
-      author: ' Shelley Powers',
+      author: 'Shelley Powers',
     },
     {
       id: 3,
@@ -31,6 +33,7 @@ const Books = () => {
             written by
             {' '}
             {book.author}
+            <button type="button">Remove</button>
           </p>
         )) }
       </div>
@@ -38,13 +41,14 @@ const Books = () => {
       <div className="">
         <h2>Add new book</h2>
         <form>
-          <input type="text" placeholder="Book title" />
-          <select name="catagory" id="category">
-            <option value="NodeJS">NodeJS</option>
-            <option value="React">React</option>
-            <option value="Javascript">Javascript</option>
+          <input type="text" placeholder="Book Title" />
+          <select name="category" id="category">
+            <option value="" disabled selected>Book Author</option>
+            <option value="Robin Wieruch">Robin Wieruch</option>
+            <option value="Shelley Powers">Shelley Powers</option>
+            <option value="Matt Frisbie">Matt Frisbie</option>
           </select>
-          <button type="submit">Add to Library</button>
+          <button type="submit">Add Book</button>
         </form>
       </div>
     </>
