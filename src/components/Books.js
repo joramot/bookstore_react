@@ -1,36 +1,26 @@
-import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeBook, addBook } from '../redux/books/booksSlice';
+import { AddButton, RemoveButton } from './Buttons';
 import Book from './Book';
 
 const Books = () => {
-  const [books] = useState([
-    {
-      id: 1,
-      title: 'The Road to React',
-      author: 'Robin Wieruch',
-    },
-    {
-      id: 2,
-      title: 'Learning Node',
-      author: 'Shelley Powers',
-    },
-    {
-      id: 3,
-      title: 'Node.js',
-      author: 'Sebastian Springer',
-    },
-    {
-      id: 4,
-      title: 'Javascript for Web Developer',
-      author: 'Matt Frisbie',
-    },
-  ]);
+  const books = useSelector((state) => state.books.books);
+  const dispatch = useDispatch();
+  const handleBookSubmit = (e) => {
+    e.preventDefault();
+    const title = e.target.previousElementSibling.previousElementSibling.value;
+    const category = e.target.previousElementSibling.value;
+    const id = Math.floor(Math.random() * 10000);
+    if (title === '' || category === '') return;
+    dispatch(addBook({ title, category, item_id: id }));
+  };
   return (
     <>
       <div className="">
         {books.map((book) => (
           <div key={book.id}>
             <Book title={book.title} author={book.author} />
-            <button type="button">Remove</button>
+            <RemoveButton onClick={() => dispatch(removeBook(book.item_id))} />
           </div>
         ))}
       </div>
@@ -45,7 +35,7 @@ const Books = () => {
             <option value="Shelley Powers">Shelley Powers</option>
             <option value="Matt Frisbie">Matt Frisbie</option>
           </select>
-          <button type="submit">Add Book</button>
+          <AddButton onClick={handleBookSubmit} />
         </form>
       </div>
     </>
