@@ -7,6 +7,7 @@ const Book = ({ title, author }) => (
     {' '}
     written by
     {author}
+    {' '}
   </p>
 );
 
