@@ -28,18 +28,22 @@ const Books = () => {
 
   return (
     <>
-      <div className="">
-        {isLoading && <p>Loading...</p>}
+      <div className="book-list mx-16 mt-10">
+        {isLoading && <p className="text-3xl text-gray-400 text-center my-15">Loading...</p>}
         {books && books.map((book) => (
-          <div key={book.item_id}>
-            <Book title={book.title} author={book.author} />
-            <RemoveButton onClick={() => dispatch(removeBook(book.item_id))} />
+          <div key={book.item_id} className="border m-5 p-5 font-secondary bg-white flex justify-between items-center  rounded">
+            <div className="mt-4 mb-2">
+              <Book title={book.title} author={book.author} />
+              <button className="text-primary-100 text-xl" type="button">Comments</button>
+              <RemoveButton onClick={() => dispatch(removeBook(book.item_id))} />
+              <button className="text-primary-100 text-xl" type="button">Edit</button>
+            </div>
           </div>
         ))}
         {books === null && <p>No books yet</p>}
       </div>
-      <hr />
-      <div className="">
+      <hr className="mx-20 mt-12 mb-8" />
+      <div className="add-book px-5 mx-16 font-primary">
         <h2>Add new book</h2>
         <form>
           <input
