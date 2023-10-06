@@ -10,7 +10,7 @@ const Books = () => {
 
   useEffect(() => {
     dispatch(getBooks());
-  }, []);
+  });
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
