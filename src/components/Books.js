@@ -38,25 +38,41 @@ const Books = () => {
               <RemoveButton onClick={() => dispatch(removeBook(book.item_id))} />
               <button className="text-primary-100 text-xl" type="button">Edit</button>
             </div>
+            <div className="flex justify-between">
+              <div className="flex items-center pr-16 mr-14 border-r-2">
+                <div className="oval rounded-full mr-4" />
+                <div className="font-primary">
+                  <h3 className="text-3xl">64%</h3>
+                  <p className="text-secondary-100 ">Completed</p>
+                </div>
+              </div>
+              <div className="mr-20">
+                <p className="uppercase text-secondary-100">current chapter</p>
+                <p className="text-lg">Chapter 17</p>
+                <button type="button" className="btn btn-blue bg-primary-200 text-gray-200 uppercase mt-4 px-8 py-1 rounded">update progress</button>
+              </div>
+            </div>
           </div>
         ))}
-        {books === null && <p>No books yet</p>}
+        {books === null && <p className="text-3xl text-gray-400 text-center my-15">Bookstore is empty</p>}
       </div>
       <hr className="mx-20 mt-12 mb-8" />
       <div className="add-book px-5 mx-16 font-primary">
-        <h2>Add new book</h2>
-        <form>
+        <h2 className="mb-5 text-2xl font-bold text-secondary-200">Add new book</h2>
+        <form className="grid grid-cols-10 gap-8">
           <input
+            className="p-3 rounded border col-span-5"
             type="text"
             placeholder="Book Title"
             required
           />
           <select
+            className="bg-white border p-3 rounded col-span-3"
             name="category"
             id="category"
             defaultValue=""
           >
-            <option value="" disabled>Author</option>
+            <option value="" disabled className="text-gray-500">Author</option>
             <option value="Action">Action</option>
             <option value="Science fiction">Science fiction</option>
             <option value="Economy">Economy</option>
