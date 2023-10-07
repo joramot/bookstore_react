@@ -10,7 +10,7 @@ const Books = () => {
 
   useEffect(() => {
     dispatch(getBooks());
-  });
+  }, []);
 
   const handleBookSubmit = (e) => {
     e.preventDefault();
@@ -30,13 +30,16 @@ const Books = () => {
     <>
       <div className="book-list mx-16 mt-10">
         {isLoading && <p className="text-3xl text-gray-400 text-center my-15">Loading...</p>}
-        {books && books.map((book) => (
+        {
+        books && books.map((book) => (
           <div key={book.item_id} className="border m-5 p-5 font-secondary bg-white flex justify-between items-center  rounded">
-            <div className="mt-4 mb-2">
-              <Book title={book.title} author={book.author} />
-              <button className="text-primary-100 text-xl" type="button">Comments</button>
-              <RemoveButton onClick={() => dispatch(removeBook(book.item_id))} />
-              <button className="text-primary-100 text-xl" type="button">Edit</button>
+            <div>
+              <Book category={book.category} title={book.title} author={book.author} />
+              <div className="mt-4 mb-2">
+                <button className="text-primary-100 text-xl" type="button">Comments</button>
+                <RemoveButton onClick={() => dispatch(removeBook(book.item_id))} />
+                <button className="text-primary-100 text-xl" type="button">Edit</button>
+              </div>
             </div>
             <div className="flex justify-between">
               <div className="flex items-center pr-16 mr-14 border-r-2">
@@ -53,7 +56,8 @@ const Books = () => {
               </div>
             </div>
           </div>
-        ))}
+        ))
+        }
         {books === null && <p className="text-3xl text-gray-400 text-center my-15">Bookstore is empty</p>}
       </div>
       <hr className="mx-20 mt-12 mb-8" />
@@ -72,7 +76,7 @@ const Books = () => {
             id="category"
             defaultValue=""
           >
-            <option value="" disabled className="text-gray-500">Author</option>
+            <option value="" disabled className="text-gray-500">Category</option>
             <option value="Action">Action</option>
             <option value="Science fiction">Science fiction</option>
             <option value="Economy">Economy</option>
